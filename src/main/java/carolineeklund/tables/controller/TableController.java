@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -33,6 +34,11 @@ public class TableController {
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
+    }
+
+    @GetMapping("/tables/seats")
+    public ResponseEntity<List<RestaurantTableDto>> getTablesBySeats(@RequestBody int seats){
+        return ResponseEntity.status(HttpStatus.OK).body(tableService.getTablesBySeats(seats));
     }
 
     @PostMapping("/table")

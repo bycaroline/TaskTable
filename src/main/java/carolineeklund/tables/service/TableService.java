@@ -33,6 +33,13 @@ public class TableService {
         return new RestaurantTableDto(restaurantTable);
     }
 
+    public List<RestaurantTableDto> getTablesBySeats(int seats){
+        return tableRepository.findByNumber_of_seats(seats)
+                .stream()
+                .map(r-> new RestaurantTableDto(r))
+                .collect(Collectors.toList());
+    }
+
     public RestaurantTable createTable (RestaurantTable restaurantTable){
         if (restaurantTable.getNumber_of_seats() >0){
             return tableRepository.save(restaurantTable);

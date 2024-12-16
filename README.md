@@ -1,7 +1,7 @@
 # Restaurant tables
 
 ## Description
-This Spring Boot project uses a H2 Database and runs on port 8086. 
+This Spring Boot project uses a H2 Database. 
 
 ## Endpoints
 #### GET /tables
